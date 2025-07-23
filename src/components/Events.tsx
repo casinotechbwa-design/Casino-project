@@ -42,37 +42,39 @@ const Events: React.FC = () => {
     }
   ];
 
- const upcomingEvents = [
-  {
-    date: 'August',
-    title: 'Dhamaka',
-    time: '12:00 PM',
-    status: 'Limited',
-    videoUrl: '',
-    image: 'dhamaka.jpg', // <-- add your image file
-  },
-  {
-    date: 'Jun-20,21,22',
-    title: 'Patte P Patta Carnival',
-    time: '1:00 PM',
-    status: 'End',
-    videoUrl: 'https://youtu.be/QRmhnyWeVrc',
-    image: 'carnival.jpg', // <-- add your image file
-  },
-  {
-    date: 'August-15,16,17',
-    title: 'Big Bash II',
-    time: '12:00 PM',
-    status: 'Available',
-    videoUrl: 'https://youtu.be/fIkMgyWzN2E',
-    image: 'bigbash.jpg', // <-- add your image file
-  },
-];
+  const upcomingEvents = [
+    {
+      date: 'August',
+      title: 'Dhamaka',
+      time: '12:00 PM',
+      status: 'Limited',
+      videoUrl: '',
+      image: 'A.jpg',
+      orientation: 'portrait'
+    },
+    {
+      date: 'August 15',
+      title: 'Shweta Mahara Promo',
+      time: '1:00 PM',
+      status: 'Available',
+      image: 'shweta.jpg',
+      videoUrl: 'shweta.mp4',
+      orientation: 'landscape'
+    },
+    {
+      date: 'August-15,16,17',
+      title: 'Big Bash II',
+      time: '12:00 PM',
+      status: 'Available',
+      videoUrl: 'https://youtu.be/fIkMgyWzN2E',
+      image: 'bigbash1.jpg',
+      orientation: 'landscape'
+    },
+  ];
 
   return (
     <section id="events" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center bg-yellow-500/20 border border-yellow-500/30 rounded-full px-4 py-2 mb-6">
             <Calendar className="h-4 w-4 text-yellow-400 mr-2" />
@@ -91,7 +93,6 @@ const Events: React.FC = () => {
           </p>
         </div>
 
-        {/* Featured Events */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {featuredEvents.map((event, index) => (
             <div
@@ -135,7 +136,6 @@ const Events: React.FC = () => {
           ))}
         </div>
 
-        {/* Upcoming Events Calendar */}
         <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center">
@@ -155,24 +155,37 @@ const Events: React.FC = () => {
                   setSelectedVideo(event.videoUrl);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="cursor-pointer bg-black/40 rounded-xl p-4 border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 group"
+                className="cursor-pointer bg-black/40 rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 group overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="text-yellow-400 font-bold text-lg">{event.date}</div>
-                  <div className={`px-2 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${
-                    event.status === 'Available' ? 'bg-green-500/20 text-green-400' :
-                    event.status === 'Limited' ? 'bg-yellow-500/20 text-yellow-400' :
-                    'bg-red-500/20 text-red-400'
-                  }`}>
-                    {event.status}
+                {event.image && (
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className={`w-full transition-all duration-300 ${
+                      event.orientation === 'portrait'
+                        ? 'h-60 object-contain bg-black'
+                        : 'h-40 object-cover'
+                    }`}
+                  />
+                )}
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="text-yellow-400 font-bold text-lg">{event.date}</div>
+                    <div className={`px-2 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${
+                      event.status === 'Available' ? 'bg-green-500/20 text-green-400' :
+                      event.status === 'Limited' ? 'bg-yellow-500/20 text-yellow-400' :
+                      'bg-red-500/20 text-red-400'
+                    }`}>
+                      {event.status}
+                    </div>
                   </div>
-                </div>
-                <div className="text-white font-bold mb-1 group-hover:text-yellow-400 transition-colors duration-200">
-                  {event.title}
-                </div>
-                <div className="text-gray-400 text-sm flex items-center">
-                  <Clock className="h-3 w-3 mr-1" />
-                  {event.time}
+                  <div className="text-white font-bold mb-1 group-hover:text-yellow-400 transition-colors duration-200">
+                    {event.title}
+                  </div>
+                  <div className="text-gray-400 text-sm flex items-center">
+                    <Clock className="h-3 w-3 mr-1" />
+                    {event.time}
+                  </div>
                 </div>
               </div>
             ))}
@@ -180,7 +193,6 @@ const Events: React.FC = () => {
         </div>
       </div>
 
-      {/* Video Modal with YouTube Embed */}
       {selectedVideo && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
           <div className="relative w-full max-w-3xl p-4">
@@ -191,13 +203,22 @@ const Events: React.FC = () => {
               <X className="w-6 h-6 text-white" />
             </button>
             <div className="relative z-40">
-              <iframe
-                src={`https://www.youtube.com/embed/${getYouTubeId(selectedVideo)}`}
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                className="w-full h-[400px] md:h-[500px] rounded-lg shadow-xl"
-              />
+              {selectedVideo.endsWith('.mp4') ? (
+                <video
+                  src={`/${selectedVideo}`}
+                  controls
+                  autoPlay
+                  className="w-full h-[400px] md:h-[500px] rounded-lg shadow-xl"
+                />
+              ) : (
+                <iframe
+                  src={`https://www.youtube.com/embed/${getYouTubeId(selectedVideo)}`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="w-full h-[400px] md:h-[500px] rounded-lg shadow-xl"
+                />
+              )}
             </div>
           </div>
         </div>

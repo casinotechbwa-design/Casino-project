@@ -47,7 +47,7 @@ const Events: React.FC = () => {
       date: 'August',
       title: 'Dhamaka',
       time: '12:00 PM',
-      status: 'Limited',
+      status: 'Unavailable',
       videoUrl: '',
       image: 'A.jpg',
       orientation: 'portrait'
@@ -56,7 +56,7 @@ const Events: React.FC = () => {
       date: 'August 15',
       title: 'Shweta Mahara Promo',
       time: '1:00 PM',
-      status: 'Available',
+      status: 'Unavailable',
       image: 'shweta.jpg',
       videoUrl: 'shweta.mp4',
       orientation: 'landscape'
@@ -65,7 +65,7 @@ const Events: React.FC = () => {
       date: 'August-15,16,17',
       title: 'Big Bash II',
       time: '12:00 PM',
-      status: 'Available',
+      status: 'Unavailable',
       videoUrl: 'https://youtu.be/fIkMgyWzN2E',
       image: 'bigbash1.jpg',
       orientation: 'landscape'

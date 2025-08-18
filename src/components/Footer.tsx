@@ -98,7 +98,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-4">
                 <div className="flex items-center space-x-3 mb-6">
-                  <img src="/logo_for_red.png" alt="Tiger Palace Casino" className="h-15 w-auto" />
+                  <img src="/logo_for_red.png" alt="Tiger Palace Casino" className="h-20 w-auto" />
                 </div>
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   Experience the ultimate in luxury gaming, dining, and entertainment in the heart of Bhairahawa Strip.

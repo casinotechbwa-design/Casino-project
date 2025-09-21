@@ -57,8 +57,8 @@ const Events: React.FC = () => {
       title: 'Fashion Show',
       time: '1:00 PM',
       status: 'Soon',
-      image: 'shweta.jpg',
-      videoUrl: 'shweta.mp4',
+      image: 'fashion.jpg',
+      videoUrl: '',
       orientation: 'landscape'
     },
     {

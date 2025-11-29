@@ -53,7 +53,7 @@ const Events: React.FC = () => {
       orientation: 'landscape'
     },
     {
-      date: 'Coming Soon',
+      date: 'Dec 2',
       title: 'Fashion Show',
       time: '1:00 PM',
       status: 'Soon',
@@ -62,7 +62,7 @@ const Events: React.FC = () => {
       orientation: 'landscape'
     },
     {
-      date: 'Coming Soon',
+      date: 'Dec 25-26-27-28',
       title: 'Big Bash II',
       time: '12:00 PM',
       status: 'Soon',

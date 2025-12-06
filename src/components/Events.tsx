@@ -45,7 +45,7 @@ const Events: React.FC = () => {
   const upcomingEvents = [
     {
       date: 'August',
-      title: 'Pole Dance',
+      title: ' Russian Dance',
       time: '09:00 PM',
       status: 'Available',
       videoUrl: '',
@@ -53,10 +53,10 @@ const Events: React.FC = () => {
       orientation: 'landscape'
     },
     {
-      date: 'Dec 2',
+      date: 'Dec 25-26-27-28',
       title: 'Fashion Show',
       time: '1:00 PM',
-      status: 'Soon',
+      status: 'Available',
       image: 'fashion.jpg',
       videoUrl: '',
       orientation: 'landscape'
@@ -65,7 +65,7 @@ const Events: React.FC = () => {
       date: 'Dec 25-26-27-28',
       title: 'Big Bash II',
       time: '12:00 PM',
-      status: 'Soon',
+      status: 'Available',
       videoUrl: 'https://youtu.be/fIkMgyWzN2E',
       image: 'bigbash1.jpg',
       orientation: 'landscape'
